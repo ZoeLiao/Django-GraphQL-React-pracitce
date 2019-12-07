@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'social_django',
     'user'
 ]
 
@@ -125,3 +126,8 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'user.schema.schema'
 }
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]

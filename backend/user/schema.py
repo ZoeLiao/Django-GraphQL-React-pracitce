@@ -1,7 +1,12 @@
 from graphene_django import DjangoObjectType
+import graphql_social_auth
 import graphene
 
 from user.models import UserModel
+
+
+class Mutations(graphene.ObjectType):
+    social_auth = graphql_social_auth.SocialAuth.Field()
 
 
 class User(DjangoObjectType):
@@ -16,4 +21,7 @@ class Query(graphene.ObjectType):
         return UserModel.objects.all()
 
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(
+    query=Query,
+    mutation=Mutations
+)
