@@ -11,4 +11,7 @@
     - Login and Logout by Google account and get access\_token
 
 ## Reference
-- [Gmail Login](https://developers.google.com/identity/sign-in/web/sign-in)
+- [Google Sign-in Button](https://developers.google.com/identity/sign-in/web/sign-in)
+- [Google Client ID](https://console.developers.google.com/apis/credentials/)
+- [django-graphql-social-auth](https://github.com/flavors/django-graphql-social-auth)
+- [babel-plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties)
