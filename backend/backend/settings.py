@@ -124,7 +124,7 @@ STATIC_URL = '/static/'
 
 # GraphQL
 GRAPHENE = {
-    'SCHEMA': 'user.schema.schema'
+    'SCHEMA': 'backend.schema.schema'
 }
 
 AUTHENTICATION_BACKENDS = [

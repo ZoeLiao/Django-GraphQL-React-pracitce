@@ -33,9 +33,3 @@ class Query(graphene.ObjectType):
 
     def resolve_users(self, info):
         return UserModel.objects.all()
-
-
-schema = graphene.Schema(
-    query=Query,
-    mutation=Mutations
-)
