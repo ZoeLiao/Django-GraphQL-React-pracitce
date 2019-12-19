@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-//import { Auth } from './Auth'
+import { Auth } from './Auth'
 
 
 const CLIENT_ID = '750120651658-lkthrcf9d14jj6m06crko5nomile1dv8.apps.googleusercontent.com';
@@ -60,6 +60,7 @@ class GoogleBtn extends Component {
         />
       }
       { this.state.accessToken ? <h5>Your Access Token: <br/><br/> {this.state.accessToken}</h5> : null }
+      <Auth/>
 
     </div>
     )

@@ -1,32 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import GoogleBtn from './Components/GoogleBtn';
+import GoogleBtn from './components/GoogleBtn';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
+const GRAPHQL_URL = 'http://localhost:8000/graphql/'
 const client = new ApolloClient({
-  uri: 'http://localhost:8000/graphql'
+  uri: GRAPHQL_URL 
 });
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <br/>
+    <ApolloProvider client={client}>
+      <div className='App'>
+        <header className='App-header'>
+          <img src={logo} className='App-logo' alt='logo' />
+          <br/>
 
-        <ApolloProvider client={client}>
-          <a href='http://localhost:8000/graphql' style={{ color: 'white' }}>
+          <a href={GRAPHQL_URL} style={{ color: 'white' }}>
             Go to GraphiQL
           </a>
-        </ApolloProvider>
-        <br/>
+          <br/>
 
-        <GoogleBtn />
-      </header>
-    </div>
+          <GoogleBtn />
+        </header>
+      </div>
+    </ApolloProvider>
   );
 }
 
