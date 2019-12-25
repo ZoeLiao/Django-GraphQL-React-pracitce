@@ -1,5 +1,5 @@
-
-import { gql } from 'apollo-boost';
+import React from 'react'
+import gql from 'graphql-tag'
 import { useMutation } from 'react-apollo';
 
 
@@ -13,20 +13,31 @@ const GET_AUTH = gql`
   }
 }
 `
+export function Auth() {
 
-export function Auth () {
-  console.log(useMutation(GET_AUTH, {
-    variables: {
-      provider: 'google-oauth2',
-      accessToken: 'test' 
-    },
-  }));
+  let input;
+  const [socialAuth, { data }] = useMutation(GET_AUTH);
 
-  const error = true;
-  if (error) {
-    return (<div>Error</div>);
-  }
+  return (
+    <div>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          socialAuth({ variables: { 'provider': 'google-oauth2', 'accessToken': input.value } });
+          input.value = '';
+        }}
+      >
+        <input
+          ref={node => {
+            input = node;
+          }}
+        />
+        <br/>
+        <button type="submit">Get Email</button>
+      </form>
 
-  return <div>Authorizated</div>
+      { data? <h5> Your email: { data.socialAuth.social.uid } </h5>: ''}
+
+    </div>
+  );
 }
-

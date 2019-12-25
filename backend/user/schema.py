@@ -3,17 +3,16 @@ from graphene_django import DjangoObjectType
 import graphql_social_auth
 import graphene
 
-from user.models import UserModel
+from user.models import CustomUser
 
 
 class UserType(DjangoObjectType):
+
+    is_private_account = graphene.Boolean(source='is_private_account')
+
     class Meta:
         model = get_user_model()
-
-
-class User(DjangoObjectType):
-    class Meta:
-        model = UserModel
+        interfaces = (graphene.Node,)
 
 
 class SocialAuth(graphql_social_auth.SocialAuthMutation):
@@ -29,13 +28,7 @@ class Mutations(graphene.ObjectType):
 
 
 class Query(graphene.ObjectType):
-    users = graphene.List(User)
+    users = graphene.List(UserType)
 
     def resolve_users(self, info):
-        return UserModel.objects.all()
-
-
-schema = graphene.Schema(
-    query=Query,
-    mutation=Mutations
-)
+        return CustomUser.objects.all()
