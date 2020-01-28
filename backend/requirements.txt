@@ -2,8 +2,11 @@ aniso8601==7.0.0
 asgiref==3.2.3
 certifi==2019.11.28
 chardet==3.0.4
+coreapi==2.3.3
+coreschema==0.0.4
 defusedxml==0.6.0
 Django==3.0
+django-cors-headers==3.2.0
 django-filter==2.2.0
 django-graphql-social-auth==0.1.4
 graphene==2.1.8
@@ -11,6 +14,9 @@ graphene-django==2.7.1
 graphql-core==2.2.1
 graphql-relay==2.0.0
 idna==2.8
+itypes==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
 oauthlib==3.1.0
 promise==2.2.1
 PyJWT==1.7.1
@@ -24,4 +30,5 @@ six==1.13.0
 social-auth-app-django==3.1.0
 social-auth-core==3.2.0
 sqlparse==0.3.0
+uritemplate==3.0.0
 urllib3==1.25.7
